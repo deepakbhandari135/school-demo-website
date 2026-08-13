@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Students — Rohtak Public School SMS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="mark">R</div>
+      <div><b>RPS Rohtak</b><span>Student MS</span></div>
+    </div>
+    <a class="nav-link" href="dashboard.html"><span class="dot"></span>Dashboard</a>
+    <a class="nav-link active" href="students.html"><span class="dot"></span>Students</a>
+    <a class="nav-link" href="attendance.html"><span class="dot"></span>Attendance</a>
+    <a class="nav-link" href="marks.html"><span class="dot"></span>Marks &amp; Results</a>
+    <div class="spacer"></div>
+    <div class="signout" id="userEmail">…</div>
+    <a class="nav-link" href="#" id="signOutBtn" style="margin-top:8px;">↩ Sign out</a>
+  </aside>
+
+  <main class="main">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow">Records</div>
+        <h2>Students</h2>
+        <p>Add, search and manage student records.</p>
+      </div>
+      <button class="btn btn-accent" id="addStudentBtn">+ Add student</button>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>All students</h3>
+        <div class="toolbar">
+          <input type="text" id="searchInput" placeholder="Search by name or roll no." />
+          <select id="classFilter"><option value="">All classes</option></select>
+        </div>
+      </div>
+      <div id="studentsWrap"><div class="loader">Loading…</div></div>
+    </div>
+  </main>
+</div>
+
+<!-- Add / Edit modal -->
+<div class="modal-backdrop" id="studentModal">
+  <div class="modal">
+    <h3 id="modalTitle">Add student</h3>
+    <p class="sub">Fields marked required must be filled before saving.</p>
+    <div class="error-msg" id="formError"></div>
+    <form id="studentForm">
+      <input type="hidden" id="studentId" />
+      <div class="field"><label>Full name *</label><input type="text" id="fullName" required /></div>
+      <div class="two-col">
+        <div class="field"><label>Roll number *</label><input type="text" id="rollNo" required /></div>
+        <div class="field"><label>Class *</label><select id="classSelect" required></select></div>
+      </div>
+      <div class="two-col">
+        <div class="field"><label>Parent name</label><input type="text" id="parentName" /></div>
+        <div class="field"><label>Parent phone</label><input type="tel" id="parentPhone" /></div>
+      </div>
+      <div class="field"><label>Email</label><input type="email" id="studentEmail" /></div>
+      <div class="field"><label>Address</label><textarea id="address" rows="2"></textarea></div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="saveBtn" style="width:auto;">Save student</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/students.js"></script>
+</body>
+</html>

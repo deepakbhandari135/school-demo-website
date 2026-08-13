@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard — Rohtak Public School SMS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="mark">R</div>
+      <div><b>RPS Rohtak</b><span>Student MS</span></div>
+    </div>
+    <a class="nav-link active" href="dashboard.html"><span class="dot"></span>Dashboard</a>
+    <a class="nav-link" href="students.html"><span class="dot"></span>Students</a>
+    <a class="nav-link" href="attendance.html"><span class="dot"></span>Attendance</a>
+    <a class="nav-link" href="marks.html"><span class="dot"></span>Marks &amp; Results</a>
+    <div class="spacer"></div>
+    <div class="signout" id="userEmail">…</div>
+    <a class="nav-link" href="#" id="signOutBtn" style="margin-top:8px;">↩ Sign out</a>
+  </aside>
+
+  <main class="main">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow">Overview</div>
+        <h2>Good to see you</h2>
+        <p>Here's how the school is looking today.</p>
+      </div>
+    </div>
+
+    <div class="stat-grid" id="statGrid">
+      <div class="stat-card"><div class="label">Total students</div><div class="value" id="statStudents">—</div></div>
+      <div class="stat-card"><div class="label">Classes</div><div class="value" id="statClasses">—</div></div>
+      <div class="stat-card"><div class="label">Present today</div><div class="value" id="statPresent">—</div></div>
+      <div class="stat-card"><div class="label">Absent today</div><div class="value" id="statAbsent">—</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>Recently added students</h3>
+        <a href="students.html" class="btn btn-ghost btn-sm">View all →</a>
+      </div>
+      <div id="recentWrap">
+        <div class="loader">Loading…</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

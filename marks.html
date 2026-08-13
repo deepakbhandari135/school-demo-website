@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marks &amp; Results — Rohtak Public School SMS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="mark">R</div>
+      <div><b>RPS Rohtak</b><span>Student MS</span></div>
+    </div>
+    <a class="nav-link" href="dashboard.html"><span class="dot"></span>Dashboard</a>
+    <a class="nav-link" href="students.html"><span class="dot"></span>Students</a>
+    <a class="nav-link" href="attendance.html"><span class="dot"></span>Attendance</a>
+    <a class="nav-link active" href="marks.html"><span class="dot"></span>Marks &amp; Results</a>
+    <div class="spacer"></div>
+    <div class="signout" id="userEmail">…</div>
+    <a class="nav-link" href="#" id="signOutBtn" style="margin-top:8px;">↩ Sign out</a>
+  </aside>
+
+  <main class="main">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow">Academics</div>
+        <h2>Marks &amp; results</h2>
+        <p>Record exam marks per student and subject.</p>
+      </div>
+      <button class="btn btn-accent" id="addMarkBtn">+ Add marks</button>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>Recorded marks</h3>
+        <div class="toolbar">
+          <select id="classFilter"><option value="">All classes</option></select>
+          <input type="text" id="examFilter" placeholder="Filter by exam name" />
+        </div>
+      </div>
+      <div id="marksWrap"><div class="loader">Loading…</div></div>
+    </div>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="markModal">
+  <div class="modal">
+    <h3>Add marks</h3>
+    <p class="sub">Record one subject's result for one student.</p>
+    <div class="error-msg" id="markFormError"></div>
+    <form id="markForm">
+      <div class="field"><label>Student *</label><select id="markStudent" required></select></div>
+      <div class="two-col">
+        <div class="field"><label>Subject *</label><input type="text" id="markSubject" placeholder="Mathematics" required /></div>
+        <div class="field"><label>Exam name *</label><input type="text" id="markExam" placeholder="Half-Yearly" required /></div>
+      </div>
+      <div class="two-col">
+        <div class="field"><label>Marks obtained *</label><input type="number" id="marksObtained" min="0" required /></div>
+        <div class="field"><label>Max marks *</label><input type="number" id="maxMarks" min="1" value="100" required /></div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="markCancelBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary" style="width:auto;">Save marks</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/marks.js"></script>
+</body>
+</html>
