@@ -7,7 +7,7 @@
 //    it is safe to use in frontend code together with Row Level
 //    Security (RLS) policies (see supabase-schema.sql)
 // ============================================================
-const SUPABASE_URL = "https://YOUR-PROJECT-REF.supabase.co";
-const SUPABASE_ANON_KEY = "YOUR-ANON-PUBLIC-KEY";
+const SUPABASE_URL = "https://https://oalmpbbdgdpvurjrlxty.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_JPfOTdJRiZhOoAiohFo8NA_iYKOaCFT;
 
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
